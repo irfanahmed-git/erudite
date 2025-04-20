@@ -1,2 +1,2 @@
-# erudite
+# Erudite
 Minimal thesaurus app
