@@ -3,17 +3,16 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Erudite - The thesaurus for minimalists</title>
+        <title>Erudite</title>
         <link rel="stylesheet" href="index.css" />
         <link rel="icon" type="image/x-icon" href="favicon.png" />
     </head>
     <body>
         <h1>Erudite</h1>
-        <label for="wordInput">Enter in a word : </label>
+        <label for="wordInput"></label>
         <input type="text" id="wordInput" placeholder="Type in a word" />
         <button onclick="getSynonyms()">Get synonyms</button>
-
-        <h2>Synonyms</h2>
+        <h2>Results</h2>
         <ul id="synonyms"></ul>
 
         <script>
@@ -52,5 +51,25 @@
                     });
             }
         </script>
+        <script>
+            function darkMode() {
+                var element = document.body;
+                element.classList.toggle("dark-mode");
+
+                if (element.classList.contains("dark-mode")) {
+                    localStorage.setItem("theme", "dark");
+                } else {
+                    localStorage.setItem("theme", "light");
+                }
+            }
+
+            // Apply saved theme on page load
+            window.onload = function () {
+                if (localStorage.getItem("theme") === "dark") {
+                    document.body.classList.add("dark-mode");
+                }
+            };
+        </script>
+        <button class="darkModeButton" onclick="darkMode()">✦</button>
     </body>
 </html>

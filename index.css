@@ -9,6 +9,7 @@
 }
 
 body {
+    position: relative;
     padding-left: 5%;
     padding-top: 5%;
     padding-bottom: 5%;
@@ -17,14 +18,61 @@ body {
 
 input {
     padding: 5px;
+    color: dimgray;
     font-family: "IBM Plex Mono";
+    background-color: white;
+    border: solid;
+    border-color: dimgray;
+    border-width: 1px;
+    display: inline-block;
+    padding-left: 10px;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+    padding-right: 10px;
 }
 
 button {
+    border-radius: 2px;
     padding: 5px;
+    background-color: lightgray;
+    border: solid;
+    border-color: dimgray;
+    border-width: 1px;
     font-family: "IBM Plex Mono";
     padding-left: 10px;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
     padding-right: 10px;
+    text-align: center;
+    display: inline-block;
+    transition-duration: 0.4s;
+}
+
+button:hover {
+    background-color: dimgray;
+    font-color: white;
+    color: white;
+}
+
+ul {
+    display: inline;
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+    list-style: none;
+    line-height: 150%;
+}
+
+ul li {
+    display: inline;
+}
+
+ul li::after {
+    content: ", ";
+}
+
+ul li:last-child::after {
+    content: ""; /* Remove the ; after the last item */
 }
 
 h1 {
@@ -37,4 +85,32 @@ h2 {
 
 h3 {
     font-family: "Proto Mono";
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+.darkModeButton {
+    position: fixed;
+    bottom: 7.5%;
+    right: 5%;
+}
+
+.dark-mode input {
+    background-color: #222;
+    color: #eee;
+    border-color: #555;
+}
+
+.dark-mode button {
+    background-color: #333;
+    color: #eee;
+    border-color: #666;
+}
+
+.dark-mode button:hover {
+    background-color: #555;
+    color: white;
 }
