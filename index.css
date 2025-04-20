@@ -33,6 +33,7 @@ input {
 
 button {
     border-radius: 2px;
+    color: white;
     padding: 5px;
     background-color: lightgray;
     border: solid;
@@ -94,6 +95,7 @@ h3 {
 
 .darkModeButton {
     position: fixed;
+    color: white;
     bottom: 7.5%;
     right: 5%;
 }
