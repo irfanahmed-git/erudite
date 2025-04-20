@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Erudite - The thesaurus for minimalists</title>
+        <link rel="stylesheet" href="index.css" />
+        <link rel="icon" type="image/x-icon" href="favicon.png" />
+    </head>
+    <body>
+        <h1>Erudite</h1>
+        <label for="wordInput">Enter in a word : </label>
+        <input type="text" id="wordInput" placeholder="Type in a word" />
+        <button onclick="getSynonyms()">Get synonyms</button>
+
+        <h2>Synonyms</h2>
+        <ul id="synonyms"></ul>
+
+        <script>
+            function getSynonyms() {
+                const word = document.getElementById("wordInput").value.trim();
+
+                if (!word) {
+                    alert("Please enter a word.");
+                    return;
+                }
+
+                const url = `https://api.datamuse.com/words?rel_syn=${word}`;
+
+                fetch(url)
+                    .then((response) => response.json())
+                    .then((data) => {
+                        const synonymsList =
+                            document.getElementById("synonyms");
+                        synonymsList.innerHTML = "";
+
+                        if (data.length === 0) {
+                            synonymsList.innerHTML = "<li>We found none</li>";
+                            return;
+                        }
+
+                        data.forEach((item) => {
+                            const listItem = document.createElement("li");
+                            listItem.classList.add("Synonym");
+                            listItem.textContent = item.word;
+                            synonymsList.appendChild(listItem);
+                        });
+                    })
+                    .catch((error) => {
+                        console.error("Error - ", error);
+                        alert("Failed to fetch any synonyms");
+                    });
+            }
+        </script>
+    </body>
+</html>
