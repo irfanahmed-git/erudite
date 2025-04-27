@@ -12,7 +12,7 @@
         <label for="wordInput"></label>
         <input type="text" id="wordInput" placeholder="Type in a word" />
         <button onclick="getSynonyms()">Get synonyms</button>
-        <h2>Results</h2>
+        <h2 id="resultsHeader" style="display: none">Results</h2>
         <ul id="synonyms"></ul>
 
         <script>
@@ -32,12 +32,16 @@
                         const synonymsList =
                             document.getElementById("synonyms");
                         synonymsList.innerHTML = "";
+                        const resultsHeader =
+                            document.getElementById("resultsHeader");
+                        synonymsList.innerHTML = "";
 
                         if (data.length === 0) {
                             synonymsList.innerHTML = "<li>We found none</li>";
                             return;
                         }
 
+                        resultsHeader.style.display = "block";
                         data.forEach((item) => {
                             const listItem = document.createElement("li");
                             listItem.classList.add("Synonym");
@@ -62,14 +66,14 @@
                     localStorage.setItem("theme", "light");
                 }
             }
-
-            // Apply saved theme on page load
             window.onload = function () {
                 if (localStorage.getItem("theme") === "dark") {
                     document.body.classList.add("dark-mode");
                 }
             };
         </script>
-        <button class="darkModeButton" onclick="darkMode()">✦</button>
+        <button class="darkModeButton" onclick="darkMode()">
+            toggle dark mode
+        </button>
     </body>
 </html>

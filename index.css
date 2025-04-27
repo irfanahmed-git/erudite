@@ -13,6 +13,7 @@ body {
     padding-left: 5%;
     padding-top: 5%;
     padding-bottom: 5%;
+    padding-right: 5%;
     font-family: "IBM Plex Mono";
 }
 
@@ -33,7 +34,7 @@ input {
 
 button {
     border-radius: 2px;
-    color: white;
+    color: dimgray;
     padding: 5px;
     background-color: lightgray;
     border: solid;
@@ -57,9 +58,9 @@ button:hover {
 
 ul {
     display: inline;
-    list-style-type: none; /* Remove bullets */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margins */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
     list-style: none;
     line-height: 150%;
 }
@@ -73,7 +74,7 @@ ul li::after {
 }
 
 ul li:last-child::after {
-    content: ""; /* Remove the ; after the last item */
+    content: "";
 }
 
 h1 {
@@ -95,7 +96,7 @@ h3 {
 
 .darkModeButton {
     position: fixed;
-    color: white;
+    color: dimgray;
     bottom: 7.5%;
     right: 5%;
 }
